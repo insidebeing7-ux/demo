@@ -8,16 +8,19 @@ import threading
 import requests
 
 app = Flask(__name__)
-CORS(app, origins=[
+const cors = require("cors");
+
+app.use(cors({
+  origin: [
     "https://chatflow-ai-o3e6.onrender.com",
     "https://chatflow.com",
     "https://backend-1-liqz.onrender.com",
     "https://demo-27zy.onrender.com",
     "https://backend-vz58.onrender.com",
-    "https://demo-27zy.onrender.com",
     "https://kairos-7t1.pages.dev"
-    
-])
+  ],
+  credentials: true
+}));
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
@@ -285,9 +288,9 @@ Never output anything except that JSON object. No markdown, no extra text."""
         return jsonify({"reply": "Sorry, I couldn't process that — try rephrasing.", "action": None, "target": None}), 500
 
 
-@app.route("/health", methods=["GET"])
-def health():
-    return jsonify({"status": "ok"}), 200
+app.get("/health", (req, res) => {
+  res.json({ status: "ok" });
+});
 
 def self_ping():
     while True:

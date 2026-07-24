@@ -257,7 +257,9 @@ SITE INFORMATION:
 If the user is asking to be taken/navigated somewhere on the site (e.g. "take me to
 sign up", "show me how it works", "go home", "I want to create an account"), respond
 with strict JSON ONLY in this exact shape:
-{{"reply": "<short friendly sentence, e.g. 'Sure, taking you to sign up!'>", "action": "navigate", "target": "home" | "about" | "signup"}}
+{{"reply": "<short friendly sentence, e.g. 'Sure, taking you to sign up!'>", "action": "click", "target": "home" | "about" | "signup" | "getStarted" | "seeDemo"}}
+
+Use "click" (not "navigate") whenever the request maps to an actual on-page button.
 
 For any other question (what does the app do, what is auto reply, etc.), respond with
 strict JSON ONLY in this exact shape:

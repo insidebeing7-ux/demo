@@ -10,17 +10,16 @@ import requests
 app = Flask(__name__)
 const cors = require("cors");
 
-app.use(cors({
-  origin: [
+app = Flask(__name__)
+
+CORS(app, resources={r"/*": {"origins": [
     "https://chatflow-ai-o3e6.onrender.com",
     "https://chatflow.com",
     "https://backend-1-liqz.onrender.com",
     "https://demo-27zy.onrender.com",
     "https://backend-vz58.onrender.com",
     "https://kairos-7t1.pages.dev"
-  ],
-  credentials: true
-}));
+]}}, supports_credentials=True)
 
 client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
@@ -288,9 +287,9 @@ Never output anything except that JSON object. No markdown, no extra text."""
         return jsonify({"reply": "Sorry, I couldn't process that — try rephrasing.", "action": None, "target": None}), 500
 
 
-app.get("/health", (req, res) => {
-  res.json({ status: "ok" });
-});
+@app.route("/health", methods=["GET"])
+def health():
+    return jsonify({"status": "ok"})
 
 def self_ping():
     while True:

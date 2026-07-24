@@ -14,7 +14,8 @@ CORS(app, origins=[
     "https://backend-1-liqz.onrender.com",
     "https://demo-27zy.onrender.com",
     "https://backend-vz58.onrender.com",
-    "https://demo-27zy.onrender.com"
+    "https://demo-27zy.onrender.com",
+    "https://kairos-7t1.pages.dev"
     
 ])
 

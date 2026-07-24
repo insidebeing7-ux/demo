@@ -8,9 +8,6 @@ import threading
 import requests
 
 app = Flask(__name__)
-const cors = require("cors");
-
-app = Flask(__name__)
 
 CORS(app, resources={r"/*": {"origins": [
     "https://chatflow-ai-o3e6.onrender.com",

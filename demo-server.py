@@ -12,9 +12,9 @@ CORS(app, origins=[
     "https://chatflow-ai-o3e6.onrender.com",
     "https://chatflow.com",
     "https://backend-1-liqz.onrender.com",
-    "https://testback-4sru.onrender.com",
+    "https://demo-27zy.onrender.com",
     "https://backend-vz58.onrender.com",
-    "https://chatflow-ai-o3e6.onrender.com"
+    "https://demo-27zy.onrender.com"
     
 ])
 
@@ -292,7 +292,7 @@ def self_ping():
     while True:
         time.sleep(13 * 60)
         try:
-            url = os.getenv("SELF_URL", "https://chatflow-ai-1.onrender.com")
+            url = os.getenv("SELF_URL", "https://demo-27zy.onrender.com")
             requests.post(url + "/ai", json={
                 "text": "hi",
                 "mode": "chat",
